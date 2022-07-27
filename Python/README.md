@@ -4,4 +4,5 @@
 
 
 
-<img src="C:\Users\여름\TIL\Python\image\책.PNG" style="zoom:50%;" />
+<img src="image/책.PNG" alt="책" style="zoom:50%;" />
+
