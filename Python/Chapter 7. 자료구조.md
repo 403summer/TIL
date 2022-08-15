@@ -247,8 +247,6 @@ d['l'] = 500
 
 for i,j in OrderedDict(sorted(d.items(), key=sort_by_key)).items():
     print(i, j)
-    
-    
 ```
 
 
