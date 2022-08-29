@@ -174,7 +174,7 @@ sense.sense_test()
 
 
 
-#### 3. 디렉터리별로 __init__.py 구성하기
+#### 3. 디렉터리 별로 `__init__.py` 구성하기
 
 * `__init__.py` 파일은 패키지 개발자, 설치 시 확인해야 할 내용 등 메타데이터라고 할 수 있는 내용을 담고있다. 하지만 가장 중요한 내용은 이 패키지 구조에 대한 정보가 담겨 있다.
 
@@ -202,7 +202,7 @@ __all__ = ['sense', 'statics']
 
 * from . 을 import문 앞에 붙이는 이유는 현재 디렉터리인 analysis의 패키지를 호출하기 위함이다. from . 을 붙이지 않으면 상위 디렉터리인 ROBOADVISOR에서 sense나 statics 패키지를 찾게 되어 오류가 발생한다
 
-#### 4. __main__.py 파일 만들기
+#### 4. `__main__.py` 파일 만들기
 
 ![11-3](C:\Users\여름\TIL\Python\image\11-3.PNG)
 
