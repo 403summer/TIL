@@ -1,8 +1,3 @@
-# 공부할 도서
+# 파이썬 공부
 
-
-
-
-
-<img src="image/책.PNG" alt="책" style="zoom:50%;" />
 
