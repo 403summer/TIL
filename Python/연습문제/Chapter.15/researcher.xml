@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <researchers>
+        <researcher researcherID = "0001">
+            <na>Tedd</na>
+            <position>Professeor</position>
+            <degree>Doctor of Engineering</degree>
+            <salary format="dollar">70000</salary>
+            <day_off>Y</day_off>
+        </researcher>
+        <researcher researcherID = "0002">
+            <na>Henry</na>
+            <position>Senior.researcher</position>
+            <degree>Master of Engineering</degree>
+            <salary format="dollar">7000</salary>
+            <day_off>N</day_off>
+        </researcher>
+        <researcher researcherID = "0003">
+            <na>John</na>
+            <position>Junior.researcher</position>
+            <degree>Bachelor of Engineering</degree>
+            <salary format="dollar">700</salary>
+            <day_off>Y</day_off>
+        </researcher>
+    </researchers>

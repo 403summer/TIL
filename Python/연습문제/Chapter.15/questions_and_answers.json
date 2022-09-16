@@ -1,0 +1,16 @@
+{
+    "quiz":{
+        "sport":{
+            "q1":{
+                "question":"which one is correct team name in NBA?",
+                "options":[
+                    "New York Bulls",
+                    "Los Angeles kings",
+                    "Golden State Warriors",
+                    "Huston Rocket"
+                ],
+                "answer":"Huston Rocktet"
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ from requests_oauthlib import OAuth1
 consumer_key = '확인한 consumer_key'
 consumer_secret = '확인한 consumer_secret'
 access_token = '확인한 access_token'
-access_token_secret = '확인한 access_token_secret‘
+access_token_secret = '확인한 access_token_secret'
 
 # 사용자의 OAuth 인증 정보 생성
 oauth = OAuth1(client_key=consumer_key, client_secret=consumer_secret, resource_owner_key=access_token, resource_owner_secret=access_token_secret)
