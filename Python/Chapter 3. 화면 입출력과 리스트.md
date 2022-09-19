@@ -223,7 +223,7 @@
 
   
 
-  ![3-4](C:\Users\여름\TIL\Python\image\3-4.png)
+  <img src="image/3-4.png" alt="3-4" style="zoom:80%;" />
 
 
 
@@ -241,10 +241,6 @@
   a == b # True
   # 파이썬의 정수형 저장 방식의 특성은 -5 ~ 256까지의 정수는 특정 메모리 주소 값에 저장되기에 a is b 는 True 로 나타난다.
   ```
-
-
-
-![3-5](C:\Users\여름\TIL\Python\image\3-5.png)
 
 
 
@@ -274,7 +270,7 @@
 
 
 
-![3-6](C:\Users\여름\TIL\Python\image\3-6.png)
+<img src="image/3-5.png" alt="3-5" style="zoom:80%;" />
 
 
 
@@ -284,5 +280,5 @@
 
 
 
-![3-7](C:\Users\여름\TIL\Python\image\3-7.png)
+<img src="image/3-6.png" alt="3-6" style="zoom:80%;" />
 
