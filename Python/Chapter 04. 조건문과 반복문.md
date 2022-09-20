@@ -35,14 +35,9 @@
 
 
 ```python
-if 1: print('True')
-else: print('False')
-    
-# True 출력
-
-(3>5)<10
+print((3>5)<10)
 # (3>5) False 니까 0 
-# 0<10 True 니까 1을 반환
+# 0<10 True 반환
 ```
 
 
@@ -129,7 +124,7 @@ for i in 'abcde':
 ```python
 # while 은 반본 횟수를 모를 때, 사용한다.
 # while <조건>: 조건이 거짓이 될 때 까지 실행
-
+i = 0
 while i < 10:
     print(i)
     i+=1
