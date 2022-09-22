@@ -2,7 +2,7 @@
 
 
 
-## Chapter 01. 파이썬
+## [Chapter 01. 파이썬](C:\Users\여름\TIL\Python\Chapter 01. 파이썬.md)
 
 ### 01. 파이썬 특징
 
