@@ -12,20 +12,78 @@
 
 
 
-### 1.2 객체와 클래스
+### 1.2 클래스
 
-* 객체의 개념
+* 클래스는 틀이라고 생각할 수 있다. 클래스를 설계할 때 다음과 같이 2가지를 고려해야 한다.
 
-| 개념 |                   설명                    |            예시             |
-| :--: | :---------------------------------------: | :-------------------------: |
-| 객체 | 실생활에 존재하는 실제적인 물건 또는 개념 |       심판, 선수, 팀        |
-| 속성 |          객체가 가지고 있는 변수          | 선수의 이름, 포지션, 소속팀 |
-| 행동 | 객체가 실제로 작동할 수 있는 함수, 메서드 |     공을 차다, 패스하다     |
+![10-1](image/10-1.png)
 
-* 클래스의 개념
-  * 클래스는 객체가 가져야할 기본 정보를 담은 코드로, 일종의 설계도라고 생각하면 된다.
-  * 이러한 정보를 클래스에 담고 실제 생성되는 객체를 인스턴스라고 한다.
-  * ex) 붕버빵틀(클래스) -> 붕버빵(인스턴스)
+```python
+class Pen:
+    def setColor(self, color):
+        self.color = color
+    def write(self, sentence):
+        print(sentence)
+```
+
+* 예를 들어, Pen이라는 클래스를 만들면 펜의 색상이나 굵기 등은 해당 클래스의 속성(변수)라고 할 수 있고, 쓰기, 그리기 등은 해당 클래스의 행동(메서드)라고 할 수 있다.
+
+
+
+### 1.3 객체
+
+* 객체는 클래스(틀)로 찍어낸 실제(붕어빵)과 같다
+
+```python
+class Pen:
+    def setColor(self, color):
+        self.color = color
+    def write(self, sentence):
+        print(sentence)
+        
+red = Pen()
+red.setColor('red')
+red.write('빨간색입니다')
+
+# 빨간색입니다
+```
+
+* 예를 들어, red라는 이름의 객체를 생성하고, 'red' 값을 인자로 지정한다. 그리고 red가 가지고 있는 메소드인 red.write() 를 통해 전달된 문장이 출력되는 것을 볼 수 있다.
+
+
+
+### 1.4 인스턴스
+
+* 인스턴스는 객체랑 혼용되는 개념이다. 객체와 같이 클래스로 만들어낸 상태를 의미하는 것은 동일하지만 특정 객체가 어느 클래스의 객체인지 관계를 위주로 설명할 때, 사용되는 용어이다.
+* 예를 들어, 펜 클래스, 지우개 클래새, 연필 클래스를 정의하고 각각의 객체가 어느 클래스에 속하는지 확인하기 위해 isinstance()를 사용해보자
+
+```python
+class Pen:
+    pass
+class Eraser:
+    pass
+class Pencil:
+    pass
+
+pen = Pen()
+eraser = Eraser()
+pencil = Pencil()
+
+print(isinstance(pen, Pen), isinstance(pen, Eraser), isinstance(pen,Pencil))
+print(isinstance(eraser, Pen), isinstance(eraser, Eraser), isinstance(eraser,Pencil))
+print(isinstance(pencil, Pen), isinstance(pencil, Eraser), isinstance(pencil,Pencil))
+
+# True False False
+# False True False
+# False False True
+```
+
+* 객체와 인스턴스는 모두 클래스를 통해 만들어낸 하나의 실제를 가진다. 엄밀히 따지면 인스턴스는 객체에 포함되는 개념이라고 할 수 있다.
+* 앞선 예시로 객체와 인스턴스를 표현하자면, Pen 클래스의 객체로 red가 선언되었으며, red는 Pen 클래스의 인스턴스라고 표현할 수 있다.
+
+
+
+
 
 
 
@@ -106,12 +164,14 @@ class SoccerPlayer(object):
 jinhyun = SoccerPlayer('jinhyun', 'MF', 10)
 
 print('현재 선수의 등번호는:', jinhyun.back_number)
-jinhyun.ckange_back_number(5)
+jinhyun.change_back_number(5)
 print('현재 선수의 등번호는:', jinhyun.back_number)
+print(jinhyun)
 
 # 현재 선수의 등번호는: 10
 # 선수의 등번호를 변경한다: From 10 to 5
 # 현재 선수의 등번호는: 5
+# Hello, My name is jinhyun. I play in MF in center.
 ```
 
 * 인스턴스가 생성된 후에는 해당 인스턴스의 이름으로 값을 할당하거나 함수를 부르면 되지만, 클래스 내에서는 self로 호출된다. 즉, 생성된 인스턴스인 jinhyun과 클래스 내 self가 같은 역활을 하는 것이다.
