@@ -1,4 +1,4 @@
-# Chapter 1. 파이썬
+# Chapter 01. 파이썬
 
 
 

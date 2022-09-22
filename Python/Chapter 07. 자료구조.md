@@ -1,4 +1,4 @@
-# Chapter 7. 자료구조
+# Chapter 07. 자료구조
 
 
 

@@ -184,7 +184,7 @@ with open('seoung_nam_floating_population_data.csv', 'w', encoding = 'utf8') as 
 
 ### 2.1 로깅의 개념
 
-* 프로그램이 실행되는 동안 일어나는 정보를 파일이나 기록으로 남기는 일을 로깅이라고 한다.
+* 프로그램이 실행되는 동안 일어나는 정보를 기록으로 남기는 일을 로깅이라고 한다.
 
 
 

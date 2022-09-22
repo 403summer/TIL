@@ -1,4 +1,4 @@
-# Chapter 6. 문자열
+# Chapter 06. 문자열
 
 
 
