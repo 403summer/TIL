@@ -21,29 +21,24 @@
 
 
 
+### 1.1 클래스 및 인스턴스
+
 ```python
 import pandas as pd
 import numpy as np
 ```
 
-
-
-### 1.1 클래스 및 인스턴스
-
 ```python
 pd.Series()
+```
 
-# Series([], dtype: float64)
+```
+Series([], dtype: float64)
 ```
 
 
 
 ### 1.2 Series 값 채우기
-
-
-
-* Series 생성자는 data, index, dtype, name, copy, fastpath의 6가지 매개변수를 정의합니다.
-* 자세한 설명은 pd.Series()를 입력하고 괄호 안에 `Shift` + `Tab` 을 눌러 설명서 모달을 참고
 
 ```python
 ice_cream_flavors = [
@@ -109,19 +104,27 @@ dtype: object
 ```python
 bunch_of_bools = [True, False, False]
 pd.Series(bunch_of_bools)
+```
 
-# 0     True
-# 1    False
-# 2    False
-# dtype: bool
+```
+0     True
+1    False
+2    False
+dtype: bool
+```
 
+
+
+```python
 stock_prices = [985.32, 950.44]
 time_of_day = ['Open', 'Close']
 pd.Series(data = stock_prices, index = time_of_day)
+```
 
-# Open     985.32
-# Close    950.44
-# dtype: float64
+```
+Open     985.32
+Close    950.44
+dtype: float64
 ```
 
 
@@ -166,112 +169,9 @@ dtype: float64
 
 
 
-## 02. 파이썬 객체에서 Series 생성
-
-* Series 생성자의 data 매개변수는 기본 파이썬 자료구조 및 다른 라이브러리의 객체를 포함하여 다양한 입력을 허용합니다
-
-
-
-* 딕셔너리
-
-```python
-calorie_info = {
-    'Cereal': 125,
-    'Chocolate Bar': 406,
-    'Ice Cream Sundae': 342
-}
-
-diet = pd.Series(calorie_info)
-diet
-```
-
-```
-Cereal              125
-Chocolate Bar       406
-Ice Cream Sundae    342
-dtype: int64
-```
-
-
-
-* 튜플
-
-```python
-pd.Series(data = ('Red', 'Green', 'Blue'))
-```
-
-```
-0      Red
-1    Green
-2     Blue
-dtype: object
-```
-
-```python
-# 튜플을 저장하는 Series를 생성하려면 튜플을 리스트로 감싸야 한다
-rgb_colors = [(120,41,26), (196,165,45)]
-pd.Series(data = rgb_colors)
-```
-
-```
-0     (120, 41, 26)
-1    (196, 165, 45)
-dtype: object
-```
-
-
-
-* 세트
-* 세트(집합)은 순서가 없는 고유한 값의 모음인데, 리스트와 같은 순서 개념이나 딕셔너리와 같은 연관개념이 없어서 판다스는 집합의 값을 저장하는 순서를 가정할 수 없다. 따라서 다음과 같은 결과를 출력한다.
-
-```python
-my_set = {'Ricky', 'Bobby'}
-pd.Series(my_set)
-
-# TypeError: 'set' type is unordered
-```
-
-```python
-# 세트를 Series에 전달하기 위해 자료구조를 변경해야 합니다.
-pd.Series(list(my_set))
-```
-
-```
-0    Bobby
-1    Ricky
-dtype: object
-```
-
-
-
-* 넘파이 ndarray 객체
-
-```python
-random_data = np.random.randint(1,101,10)
-random_data
-
-# array([49,  5, 20, 96, 79, 30, 13, 12, 74,  1])
-
-pd.Series(random_data)
-
-# 0    49
-# 1     5
-# 2    20
-# 3    96
-# 4    79
-# 5    30
-# 6    13
-# 7    12
-# 8    74
-# 9     1
-# dtype: int32
-```
-
 
 
 ## 03. Series의 속성
-
-
 
 ```python
 calorie_info = {
@@ -382,11 +282,6 @@ pd.Series(data = [1, 6, 3]).is_monotonic
 
 
 ## 04. head와 tail 메서드
-
-* 파이썬 객체에는 속성과 메서드가 있습니다. 속성은 객체에 속하는 데이터 조각으로 자료구조가 자체적으로 나타낼 수 있는 특성 또는 세부사항입니다.
-* 반면에 메서드는 객체에 속하는 기능으로 객체에서 수행할 수 있는 작업이나 명령입니다. 메서드는 일반적으로 객체 속성의 일부를 분석, 계산하거나 조작합니다. 속성은 객체의 상태를 정의하고 메서드는 객체의 동작을 정의합니다.
-
-
 
 ```python
 values = range(0, 500, 5)
