@@ -4,11 +4,9 @@
 
 ## 데이터셋
 
-- 포켓몬
+- 포켓몬(pokemon)
 
 ```python
-#pokemon
-
 Pokemon
 Bulbasaur      Grass / Poison
 Ivysaur        Grass / Poison
@@ -26,11 +24,9 @@ Name: Type, Length: 809, dtype: object
 
 
 
-- 구글 주가
+- 구글 주가(google)
 
 ```python
-#google
-
 Date
 2004-08-19      49.98
 2004-08-20      53.95
@@ -48,11 +44,9 @@ Name: Close, Length: 3824, dtype: float64
 
 
 
-- 독립전쟁 기록
+- 독립전쟁 기록(battles)
 
 ```python
-#battles
-
 Start Date
 1774-09-01    Massachusetts
 1774-12-14    New Hampshire
