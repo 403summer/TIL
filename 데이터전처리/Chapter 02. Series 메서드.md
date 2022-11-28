@@ -4,9 +4,11 @@
 
 ## 데이터셋
 
-- 포켓몬(pokemon)
+- 포켓몬
 
 ```python
+#pokemon
+
 Pokemon
 Bulbasaur      Grass / Poison
 Ivysaur        Grass / Poison
@@ -24,9 +26,11 @@ Name: Type, Length: 809, dtype: object
 
 
 
-- 구글 주가(google)
+- 구글 주가
 
 ```python
+#google
+
 Date
 2004-08-19      49.98
 2004-08-20      53.95
@@ -44,9 +48,11 @@ Name: Close, Length: 3824, dtype: float64
 
 
 
-- 독립전쟁 기록(battles)
+- 독립전쟁 기록
 
 ```python
+#battles
+
 Start Date
 1774-09-01    Massachusetts
 1774-12-14    New Hampshire
@@ -154,10 +160,10 @@ Start Date
 
 ### (정리)
 
-| 메서드      | 설명                        |
-| ----------- | --------------------------- |
-| head(n = 5) | 맨 위에서 5개의 행을 반환   |
-| tail(n = 5) | 맨 아래에서 5개의 행을 반환 |
+| 메서드 | 설명                        |
+| ------ | --------------------------- |
+| head() | 맨 위에서 5개의 행을 반환   |
+| tail() | 맨 아래에서 5개의 행을 반환 |
 
 
 
@@ -194,10 +200,10 @@ Name: Close, Length: 3824, dtype: float64
 | sort_index()  | 인덱스를 기준으로 정렬 |
 | sort_values() |   값을 기준으로 정렬   |
 
-|  매개변수   |      입력       |              설명               |
-| :---------: | :-------------: | :-----------------------------: |
-|  ascending  | True (오름차순) |        정렬 순서를 설정         |
-| na_position |     'last'      | 결측값을 어디에 배치할지를 결정 |
+|  매개변수   |  입력  |              설명               |
+| :---------: | :----: | :-----------------------------: |
+|  ascending  |  True  |        오름차순으로 정렬        |
+| na_position | 'last' | 결측값을 어디에 배치할지를 결정 |
 
 
 
@@ -257,10 +263,10 @@ Name: Close, dtype: float64
 
 ### (정리)
 
-|  메서드   |              설명              |
-| :-------: | :----------------------------: |
-| nsmallest | Series에서 가장 작은 값을 반환 |
-| nlargest  |  Series에서 가장 큰 값을 반환  |
+|   메서드    |        설명         |
+| :---------: | :-----------------: |
+| nsmallest() | 가장 작은 값을 반환 |
+| nlargest()  |  가장 큰 값을 반환  |
 
 
 
