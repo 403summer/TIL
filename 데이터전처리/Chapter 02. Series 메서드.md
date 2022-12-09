@@ -127,13 +127,14 @@ Name: State, Length: 232, dtype: object
 
 ### (정리)
 
-|      매개변수      |                      설명                      |
-| :----------------: | :--------------------------------------------: |
-| filepath_or_buffer |               csv 파일 경로 입력               |
-|     index_col      |                 인덱스 열 설정                 |
-|      squeeze       |         DataFrame을 Series로 강제 변환         |
-|    parse_dates     | 문자열 리스트를 인수로 받아 날짜/시간으로 변환 |
-|      usecols       |  판다스가 가져와야 하는 열 목록을 인자로 입력  |
+|      매개변수      |           입력           | 설명                           |
+| :----------------: | :----------------------: | ------------------------------ |
+| filepath_or_buffer |                          | csv 파일 경로 입력             |
+|     index_col      |       'Start Date'       | 인덱스 열 설정                 |
+|      squeeze       |           True           | DataFrame을 Series로 강제 변환 |
+|    parse_dates     |      ['Start Date']      | 날짜/시간으로 변환             |
+|      usecols       | ['State', 'Start Date']  | 가져올 열 목록을 지정          |
+|       dtype        | {'Start Date': 'string'} | 데이터 유형을 변환             |
 
 
 

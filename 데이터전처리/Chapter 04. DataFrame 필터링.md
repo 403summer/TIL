@@ -1,3 +1,7 @@
+---
+
+---
+
 # Chapter 04. DataFrame 필터링
 
 
@@ -12,7 +16,7 @@
 
 - 가상 회사의 직원 정보(employees)
 
-<img src="C:\Users\여름\Desktop\2회차\image\4\4-1.PNG" alt="4-1" style="zoom:80%;" />
+<img src="image/4/4-1.PNG" alt="4-1" style="zoom:80%;" />
 
 
 

@@ -8,9 +8,9 @@
 
 ### 1.1 넓은 데이터
 
-<img src="C:\Users\여름\Desktop\2회차\image\7\7-1.PNG" alt="7-1" style="zoom:80%;" />
+<img src="image\7\7-1.PNG" alt="7-1" style="zoom:80%;" />
 
-<img src="C:\Users\여름\Desktop\2회차\image\7\7-2.PNG" alt="7-2" style="zoom:80%;" />
+<img src="image\7\7-2.PNG" alt="7-2" style="zoom:80%;" />
 
 - 넓은 데이터셋은 값을 추가할 때 가로로 확장된다
 
@@ -23,9 +23,9 @@
 
 ### 1.2 좁은 데이터
 
-<img src="C:\Users\여름\Desktop\2회차\image\7\7-3.PNG" alt="7-3" style="zoom:80%;" />
+<img src="image\7\7-3.PNG" alt="7-3" style="zoom:80%;" />
 
-<img src="C:\Users\여름\Desktop\2회차\image\7\7-4.PNG" alt="7-4" style="zoom:80%;" />
+<img src="image\7\7-4.PNG" alt="7-4" style="zoom:80%;" />
 
 - 좁은 데이터셋은 값을 추가할 때 세로로 확장된다
 - 좁은 데이터의 장점은 기존 데이터를 조작하고 새로운 레코드를 추가하기 쉽다. 그리고 각 변수는 별개의 열로 분리된다

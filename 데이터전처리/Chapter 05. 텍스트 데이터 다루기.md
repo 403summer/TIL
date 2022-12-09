@@ -8,9 +8,7 @@
 
 - 시카고 지역 식당의 검사목록(inspections)
 
-
-
-<img src="C:\Users\여름\Desktop\2회차\image\5\5-1.PNG" alt="5-1" style="zoom:80%;" />
+<img src="image/5/5-1.PNG" alt="5-1" style="zoom:80%;" />
 
 
 

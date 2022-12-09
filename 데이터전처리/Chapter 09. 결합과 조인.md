@@ -48,23 +48,23 @@
 
 
 
-- 그룹1(groups1)<img src="C:\Users\여름\Desktop\2회차\image\9\9-1.PNG" alt="9-1" style="zoom:80%;" />
+- 그룹1(groups1)<img src="image\9\9-1.PNG" alt="9-1" style="zoom:80%;" />
 
 
 
-- 그룹2(groups2)<img src="C:\Users\여름\Desktop\2회차\image\9\9-2.PNG" alt="9-2" style="zoom:80%;" />
+- 그룹2(groups2)<img src="image\9\9-2.PNG" alt="9-2" style="zoom:80%;" />
 
 
 
 - 카테고리(categories)
 
-<img src="C:\Users\여름\Desktop\2회차\image\9\9-3.PNG" alt="9-3" style="zoom:80%;" />
+<img src="image\9\9-3.PNG" alt="9-3" style="zoom:80%;" />
 
 
 
 - 도시(cities)
 
-<img src="C:\Users\여름\Desktop\2회차\image\9\9-4.PNG" alt="9-4" style="zoom:80%;" />
+<img src="image\9\9-4.PNG" alt="9-4" style="zoom:80%;" />
 
 
 
@@ -160,13 +160,13 @@ pd.concat(
 
 - 카테고리(categories)
 
-<img src="C:\Users\여름\Desktop\2회차\image\9\9-3.PNG" alt="9-3" style="zoom:80%;" />
+<img src="image\9\9-3.PNG" alt="9-3" style="zoom:80%;" />
 
 
 
 - 도시(cities)
 
-<img src="C:\Users\여름\Desktop\2회차\image\9\9-4.PNG" alt="9-4" style="zoom:80%;" />
+<img src="image\9\9-4.PNG" alt="9-4" style="zoom:80%;" />
 
 
 

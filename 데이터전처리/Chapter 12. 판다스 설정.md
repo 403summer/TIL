@@ -8,7 +8,7 @@
 
 - 세계 국가의 행복순위(happiness)
 
-![12-1](C:\Users\여름\Desktop\2회차\image\12\12-1.PNG)
+<img src="image\12\12-1.PNG" alt="12-1" style="zoom:80%;" />
 
 
 
@@ -122,4 +122,4 @@ with pd.option_context(
     display(happiness)
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\12\12-2.PNG" alt="12-2" style="zoom:80%;" />
+<img src="image\12\12-2.PNG" alt="12-2" style="zoom:80%;" />

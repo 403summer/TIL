@@ -52,7 +52,7 @@ nobel = pd.read_json('nobel.json')
 nobel.head()
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-1.PNG" alt="11-1" style="zoom:80%;" />
+<img src="image\11\11-1.PNG" alt="11-1" style="zoom:80%;" />
 
 
 
@@ -92,7 +92,7 @@ chemistry_2019
 pd.json_normalize(data = chemistry_2019)
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-2.PNG" alt="11-2" style="zoom:80%;" />
+<img src="image\11\11-2.PNG" alt="11-2" style="zoom:80%;" />
 
 
 
@@ -102,7 +102,7 @@ pd.json_normalize(data = chemistry_2019)
 pd.json_normalize(data = chemistry_2019, record_path = 'laureates')
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-3.PNG" alt="11-3" style="zoom:80%;" />
+<img src="image\11\11-3.PNG" alt="11-3" style="zoom:80%;" />
 
 
 
@@ -116,7 +116,7 @@ pd.json_normalize(
 )
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-4.PNG" alt="11-4" style="zoom:80%;" />
+<img src="image/11/11-4.PNG" alt="11-4" style="zoom:80%;" />
 
 
 
@@ -174,7 +174,7 @@ pd.json_normalize(
 )
 ```
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-5.PNG" alt="11-5" style="zoom:80%;" />
+<img src="image\11\11-5.PNG" alt="11-5" style="zoom:80%;" />
 
 
 
@@ -206,7 +206,7 @@ pd.json_normalize(
 
 * 노벨상 수상자(winners)
 
-<img src="C:\Users\여름\Desktop\2회차\image\11\11-5.PNG" alt="11-5" style="zoom:80%;" />
+<img src="image\11\11-5.PNG" alt="11-5" style="zoom:80%;" />
 
 
 
