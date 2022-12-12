@@ -29,8 +29,6 @@ print((lambda x,y:x+y)(1,4))
 
 ## 02. 맵리듀스
 
-
-
 * 빅 데이터를 처리하기 위한 기본 알고리즘으로 많이 사용한다
 
 
@@ -47,7 +45,7 @@ print(list(map(f,ex)))
 # [1,4,9,16,25]
 ```
 
-![9-1](C:\Users\여름\TIL\Python\image\9-1.png)
+<img src="image/9/9-1.png" alt="9-1" style="zoom:80%;" />
 
 
 
@@ -123,7 +121,7 @@ from functools import reduce
 print(reduce(lambda x,y:x+y,[1,2,3,4,5])) # 15
 ```
 
-![9-2](C:\Users\여름\TIL\Python\image\9-2.png)
+<img src="image/9/9-2.png" alt="9-2" style="zoom:80%;" />
 
 
 
@@ -135,7 +133,7 @@ print(reduce(lambda x,y:x+y,[1,2,3,4,5])) # 15
 
 * *는 곱하기 기호란 뜻도 있지만 컨테이너 속성을 부여하는 기능도 있다.
 * 컨테이너란, 일종의 데이터를 담는 그릇이다. 여러 개의 변수를 한꺼번에 넣는 기능을 한다.
-* ex) 가변 인수, 키워드 가변 인수
+* ex) 가변 인수, 키워드 가변인수
 
 
 
@@ -201,5 +199,4 @@ data = {'b':1,'c':2,'d':3}
 asterisk_test(10,**data)
 # 10 1 2 3
 ```
-
 

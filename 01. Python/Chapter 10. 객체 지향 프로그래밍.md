@@ -2,21 +2,19 @@
 
 
 
-## 01. 객체 지향 프로그래밍의 이해
+## 01. 객체 지향 프로그래밍
 
 
 
-### 1.1 객체 지향 프로그래밍을 배우는 이유
+### 1.1 클래스
 
-* 객체 지향 프로그래밍은 함수처럼 어떤 기능을 함수 코드에 묶어 두는 것이 아니라, 그런 기능을 묶은 하나의 단일 프로그램을 객체라고 하는 코드에 넣어 다른 프로그래머가 재사용할 수 있도록 하는, 컴퓨터 공학의 오래된 프로그래밍 기법 중 하나이다.
+<img src="C:\Users\여름\Desktop\마크다운\01. 파이썬\2회차\image\10\10-1.png" alt="10-1" style="zoom:80%;" />
 
 
 
-### 1.2 클래스
+### (예시)
 
-* 클래스는 틀이라고 생각할 수 있다. 클래스를 설계할 때 다음과 같이 2가지를 고려해야 한다.
-
-![10-1](image/10-1.png)
+* Pen이라는 클래스를 만들면 펜의 색상이나 굵기 등은 해당 클래스의 속성(변수)라고 할 수 있고, 쓰기, 그리기 등은 해당 클래스의 행동(메서드)라고 할 수 있다.
 
 ```python
 class Pen:
@@ -26,13 +24,17 @@ class Pen:
         print(sentence)
 ```
 
-* 예를 들어, Pen이라는 클래스를 만들면 펜의 색상이나 굵기 등은 해당 클래스의 속성(변수)라고 할 수 있고, 쓰기, 그리기 등은 해당 클래스의 행동(메서드)라고 할 수 있다.
 
 
-
-### 1.3 객체
+### 1.2 객체
 
 * 객체는 클래스(틀)로 찍어낸 실제(붕어빵)과 같다
+
+
+
+### (예시)
+
+* 예를 들어, red라는 객체를 생성하고, 'red' 값을 속성으로 지정한다. 그리고 메소드인 write() 를 통해 전달된 문장이 출력되는 것을 볼 수 있다.
 
 ```python
 class Pen:
@@ -52,10 +54,15 @@ red.write('빨간색입니다')
 
 
 
-### 1.4 인스턴스
+### 1.3 인스턴스
 
 * 인스턴스는 객체랑 혼용되는 개념이다. 객체와 같이 클래스로 만들어낸 상태를 의미하는 것은 동일하지만 특정 객체가 어느 클래스의 객체인지 관계를 위주로 설명할 때, 사용되는 용어이다.
-* 예를 들어, 펜 클래스, 지우개 클래새, 연필 클래스를 정의하고 각각의 객체가 어느 클래스에 속하는지 확인하기 위해 isinstance()를 사용해보자
+
+
+
+### (예시)
+
+* 예를 들어, 펜 클래스, 지우개 클래스, 연필 클래스를 정의하고 각각의 객체가 어느 클래스에 속하는지 확인하기 위해 isinstance()를 사용해보자
 
 ```python
 class Pen:
@@ -69,13 +76,15 @@ pen = Pen()
 eraser = Eraser()
 pencil = Pencil()
 
-print(isinstance(pen, Pen), isinstance(pen, Eraser), isinstance(pen,Pencil))
-print(isinstance(eraser, Pen), isinstance(eraser, Eraser), isinstance(eraser,Pencil))
-print(isinstance(pencil, Pen), isinstance(pencil, Eraser), isinstance(pencil,Pencil))
+print(isinstance(pen, Pen))
+print(isinstance(pen, Eraser))
+print(isinstance(pen,Pencil))
+```
 
-# True False False
-# False True False
-# False False True
+```
+True 
+False 
+False
 ```
 
 * 객체와 인스턴스는 모두 클래스를 통해 만들어낸 하나의 실제를 가진다. 엄밀히 따지면 인스턴스는 객체에 포함되는 개념이라고 할 수 있다.
@@ -83,13 +92,7 @@ print(isinstance(pencil, Pen), isinstance(pencil, Eraser), isinstance(pencil,Pen
 
 
 
-
-
-
-
 ## 02. 파이썬의 객체 지향 프로그래밍
-
-
 
 * 클래스에 대해 배우기 전 파이썬에서 자주사용하는 작명 기법에 대해 알아보자
 
@@ -133,17 +136,6 @@ class SoccerPlayer(object):
 
 
 
-#### 3. _쓰임
-
-```python
-for _ in range(10):
-    print('hello')
-```
-
-* 일반적으로 _의 쓰임은 개수에 따라 나눌 수 있다. _1개는 이후로 쓰이지 않을 변수에 특별한 이름을 부여하고 싶지 않을 때 사용한다.
-
-
-
 ### 2.2 인스턴스 사용하기
 
 ```python
@@ -160,18 +152,23 @@ class SoccerPlayer(object):
     def __str__(self):
         return 'Hello, My name is %s. I play in %s in center.' %(self.name, self.position)
     
-# SoccerPlayer를 사용하는 instance 코드
+# jinhyun은 SoccerPlayer의 인스턴스
 jinhyun = SoccerPlayer('jinhyun', 'MF', 10)
 
+# 속성
 print('현재 선수의 등번호는:', jinhyun.back_number)
+# 메서드
 jinhyun.change_back_number(5)
+# 속성
 print('현재 선수의 등번호는:', jinhyun.back_number)
 print(jinhyun)
+```
 
-# 현재 선수의 등번호는: 10
-# 선수의 등번호를 변경한다: From 10 to 5
-# 현재 선수의 등번호는: 5
-# Hello, My name is jinhyun. I play in MF in center.
+```
+현재 선수의 등번호는: 10
+선수의 등번호를 변경한다: From 10 to 5
+현재 선수의 등번호는: 5
+Hello, My name is jinhyun. I play in MF in center.
 ```
 
 * 인스턴스가 생성된 후에는 해당 인스턴스의 이름으로 값을 할당하거나 함수를 부르면 되지만, 클래스 내에서는 self로 호출된다. 즉, 생성된 인스턴스인 jinhyun과 클래스 내 self가 같은 역활을 하는 것이다.
@@ -239,11 +236,15 @@ class Dog(Animal):
 animals = [Cat('Missy'), Cat('Mr.Mistoffelees'), Dog('Lassie')]
 for animal in animals:
     print(animal.name + ': ' + animal.talk())
-    
-# Missy: Meow!
-# Mr. Mistoffelees: Meow!
-# Lassie: Woof! Woof!
 ```
+
+```
+Missy: Meow!
+Mr. Mistoffelees: Meow!
+Lassie: Woof! Woof!
+```
+
+
 
 * NotImplementedError 클래스는 자식 클래스에만 해당 함수를 사용할 수 있도록 한다
 

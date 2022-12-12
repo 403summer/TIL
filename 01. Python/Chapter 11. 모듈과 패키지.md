@@ -8,7 +8,6 @@
 
 ### 1.1 모듈의 개념
 
-* 모듈은 작은 프로그래밍 조각을 뜻한다.
 * .py  파일 하나를 모듈이라고 생각하면 된다.
 * 모듈과 모듈 사이에 인터페이스를 연결하여 사용한다. 
 * 인터페이스란 간단하게 표현하면 함수에서 매개변수를 입력하는 약속이다. 다시 말해 해당 모듈을 사용하기 위해서는 모듈 간의 연결을 위한 약속이 필요한데, 이것을 인터페이스라고 한다
@@ -52,6 +51,8 @@ print(result)
 * 네임스페이스는 모듈의 호출 범위를 지정하는 것이다.
 * 네임스페이스를 사용하는 이유는 클라이언트 프로그램의 함수 이름과 호출된 모듈의 함수이름이 같을 수 있다.  이 경우, 호출된 모듈의 사용 범위를 명확히 지정해야한다. 
 
+
+
 #### 1. 알리아스(alias)
 
 * 모듈의 이름이 너무 길거나 다른 코드와 헷갈리는 이름을 가졌을 때, as 키워드를 사용하여 모듈의 이름을 간단하게 바꿔 사용할 수 있다.
@@ -88,50 +89,6 @@ print(add(1,2))
 
 
 
-### 2.3 내장 모듈의 사용
-
-
-
-#### 1. random 모듈
-
-* 난수를 생성하는 모듈
-
-```python
-import random
-
-print(random.randint(0,100)) # 0~100 사이 정수 난수를 생성
-# 13
-
-print(random.random()) # 일반적인 난수 생성
-# 1.26586
-```
-
-
-
-#### 2. time 모듈
-
-* 시간과 관련된 모듈
-
-```python
-import time
-print(time.localtime()) # 현재 시각 출력
-# time.struct_time(tm_year=2022, tm_mon=8, tm_mday=25, tm_hour=11, tm_min=33, tm_sec=2, tm_wday=3, tm_yday=237, tm_isdst=0)
-```
-
-
-
-#### 3. urllib 모듈
-
-* 웹과 관련된 모듈
-
-```python
-import urllib.request
-respose = urllib.request.urlopen('http://naver.com') # HTML 정보를 가져온다
-print(response.read())
-```
-
-
-
 ## 03. 패키지 만들기
 
 
@@ -148,14 +105,16 @@ print(response.read())
 * database(데이터베이스): 가져온 데이터를 데이터베이스에 저장하는 기능
 * analysis(분석): 해당 정보를 분석하여 의미 있는 값을 뽑는 기능
 
-![11-1](C:\Users\여름\TIL\Python\image\11-1.PNG)
+<img src="image/11/11-1.PNG" alt="11-1" style="zoom:80%;" />
+
+
 
 #### 2. 디렉터리 별로 필요한 모듈 만들기
 
 * 하나의 패키지는 중첩된 구조로 만들 수 있으므로 패키지 안에 또 하나의 패키지들어갈 수 있다.
 * 디렉터리를 하나의 패키지로 선언하기 위해서는 `__init__.py`라는 예약파일을 만들어야 한다.
 
-![11-2](C:\Users\여름\TIL\Python\image\11-2.PNG)
+<img src="image/11/11-2.PNG" alt="11-2" style="zoom:80%;" />
 
 ```python
 # sense.py (analysis 디렉터리)
@@ -202,9 +161,11 @@ __all__ = ['sense', 'statics']
 
 * from . 을 import문 앞에 붙이는 이유는 현재 디렉터리인 analysis의 패키지를 호출하기 위함이다. from . 을 붙이지 않으면 상위 디렉터리인 ROBOADVISOR에서 sense나 statics 패키지를 찾게 되어 오류가 발생한다
 
-#### 4. `__main__.py` 파일 만들기
 
-![11-3](C:\Users\여름\TIL\Python\image\11-3.PNG)
+
+#### 4.`__main__.py` 파일 만들기
+
+<img src="image/11/11-3.PNG" alt="11-3" style="zoom:80%;" />
 
 * 패키지를 한 번에 사용하기 위해 ROBOADVISOR 디렉터리에 `__main__.py` 파일을 만든다. 
 * `__main__.py` 파일의 구성은 간단하다. 기본적으로 호출해야 하는 여러 모듈을 from과 import문으로 호출한 후, `if __name__ == '__main__'` 구문 아래에 실제 실행 코드를 작성하면 된다.
@@ -312,22 +273,4 @@ where python
 # 종료하기
 deactivate
 ```
-
-
-
-#### 3. 가상환경 패키지 설치하기
-
-```cmd
-conda install matplotlib
-```
-
-
-
-#### 4. 가상환경 패키지 사용하기
-
-```cmd
-import matplotlib
-```
-
-
 

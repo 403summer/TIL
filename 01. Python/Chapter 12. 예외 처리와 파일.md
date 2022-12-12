@@ -6,17 +6,7 @@
 
 
 
-### 1.1 예외의 개념
-
-* 예외란 프로그램을 개발하면서 예상하지 못한 상황이 발생하는 것
-
-* 예외에는 예측 가능한 예외와 예측 불가능한 예외가 있다.
-* 예측 가능한 예외가 발생할 경우,  개발자가 적절한 대응을 할 수 있다.
-* 예측 불가능한 예외가 발생할 경우, 인터프리터가 자동으로 예외를 알려주며 프로그램을 종료시킨다. 하지만 프로그램의 사용자 입장에서는 매우 불친절한 프로그램이 될 것이다. 그래서  예외 처리 구문을 통해서 프로그램의 완성도를 높여야 한다.
-
-
-
-### 1.2 예외의 종류
+### 1.1 예외의 종류
 
 * 예외의 종류는 많지만 대표적으로 아래의 예외들이 있다.
 
@@ -30,7 +20,7 @@
 
 
 
-### 1.3 예외 처리 구문
+### 1.2 예외 처리 구문
 
 
 
@@ -49,17 +39,19 @@ for i in range(10):
         print(10/i)
     except ZeroDivisionError:
         print('Not divided by 0')
+```
 
-#Not divided by 0
-#10.0
-#5.0
+```
+Not divided by 0
+10.0
+5.0
 #3.3333333333333335
-#2.5
-#2.0
-#1.6666666666666667
-#1.4285714285714286
-#1.25
-#1.1111111111111112        
+2.5
+2.0
+1.6666666666666667
+1.4285714285714286
+1.25
+1.1111111111111112        
 ```
 
 
@@ -95,18 +87,20 @@ for i in range(10):
     except ZeroDivisionError:
         print('Not divided by 0')
     else:
-        print(10 / i)
-        
-#Not divided by 0
-#10.0
-#5.0
-#3.3333333333333335
-#2.5
-#2.0
-#1.6666666666666667
-#1.4285714285714286
-#1.25
-#1.1111111111111112        
+        print(10 / i)    
+```
+
+```
+Not divided by 0
+10.0
+5.0
+3.3333333333333335
+2.5
+2.0
+1.6666666666666667
+1.4285714285714286
+1.25
+1.1111111111111112    
 ```
 
 
@@ -131,17 +125,19 @@ except ZeroDivisionError:
     print('Not divided by 0')
 finally:
     print('종료되었다')
-    
-#10
-#5
-#3
-#2
-#2
-#1
-#1
-#1
-#1
-#종료되었다    
+```
+
+```
+10
+5
+3
+2
+2
+1
+1
+1
+1
+종료되었다    
 ```
 
 
@@ -163,7 +159,7 @@ while True:
     print('정수값으로 변환된 숫자 -', int(value))        
 ```
 
-<img src="image/12-1.PNG" alt="12-1" style="zoom: 80%;" />
+<img src="image/12/12-1.PNG" alt="12-1" style="zoom:80%;" />
 
 
 
@@ -185,7 +181,7 @@ print(get_binary_number(10))
 print(get_binary_number('10'))
 ```
 
-<img src="image/12-2.PNG" alt="12-2" style="zoom:80%;" />
+<img src="image/12/12-2.PNG" alt="12-2" style="zoom:80%;" />
 
 
 
@@ -213,8 +209,6 @@ print(get_binary_number('10'))
 
 ### 2.3 파일 읽기
 
-
-
 ```python
 f = open('파일명', '파일 열기 모드')
 f.close()
@@ -228,7 +222,7 @@ f.close()
 
 
 
-#### 1. 파일 읽기 실행하기
+#### 1. 파일 읽기
 
 ```python
 f = opne('파일명', 'r')
@@ -241,7 +235,7 @@ f.close()
 
 
 
-#### 2. with문과 함께 사용하기
+#### 2. with문으로 읽기
 
 ```python
 with open('파일명', 'r') as my_file:
@@ -255,6 +249,10 @@ with open('파일명', 'r') as my_file:
 
 #### 3. 한 줄씩 읽어 리스트형으로 반환하기
 
+* readlines() 함수는 한줄씩 읽어서 리스트로 반환하는 함수이다
+
+* 한 줄의 기준은 \n으로 나뉘며, 리스트로 반환하므로 for문 등 다양한 형태로 활용할 수 있다.
+
 ```python
 with open('애국가.txt', 'r') as my_file:
     content_list = my_file.readlines() # 파일 전체를 리스트로 반환
@@ -263,11 +261,11 @@ with open('애국가.txt', 'r') as my_file:
 # ['동해물과 백두산이 마르고 닿도록 \n', '하느님이 보우하사 우리 나라만세 \n', '무궁화 삼천리 화려강산 \n']    
 ```
 
-* 한 줄의 기준은 \n으로 나뉘며, 리스트로 반환하므로 for문 등 다양한 형태로 활용할 수 있다.
-
 
 
 #### 4. 실행할 때마다 한 줄씩 읽어오기
+
+* readline() 함수는 호출될  때마다 한 줄씩 읽어온다
 
 ```python
 with open('애국가.txt', 'r') as my_file:
@@ -284,34 +282,11 @@ with open('애국가.txt', 'r') as my_file:
 # 2 === 무궁화 삼천리 화려강산
 ```
 
-* readline() 함수는 호출될  때마다 한 줄씩 읽어온다
-
-
-
-#### 5. 파일 안 글자의 통계 정보 출력하기
-
-```python
-with open('애국가.txt', 'r') as my_file:
-    contents = my_file.read()
-    word_list = contents.split(' ') # 빈칸 기준으로 단어를 분리 리스트
-    line_list = contents.split('\n') # 한 줄씩 분리하여 리스트
-    
-print('총 글자의 수:', len(contents))
-print('총 단어의 수:', len(word_list))
-print('총 줄의 수:', len(line_list))
-
-# 총 단어의 수: 38
-# 총 단어의 수: 11
-# 총 줄의 수 : 3
-```
-
 
 
 ### 2.4 파일 쓰기
 
-
-
-* 파일을 쓰기 위해서는 인코딩이라는 개념을 알아야 한다. 텍스트 파일을 저장하기 위해서는 저장할 때 사용하는 표준을 지정해야하는데, 이것을 인코딩이라고 한다. 일반적으로 인코딩은 utf-8을 많이 사용하며, 파일을 윈도에서만 사용한다면 cp949도 많이 사용한다.
+* 파일을 쓰기 위해서는 인코딩 지정해야하는데, 일반적으로 인코딩은 utf-8을 많이 사용하며, 파일을 윈도에서만 사용한다면 cp949도 많이 사용한다.
 
 ```python
 f = open('count_log.txt', 'w', encoding = 'utf-8')
@@ -323,7 +298,7 @@ f.close()
 
 
 
-#### 1. 파일 열기모드 a로 새로운 글 추가하기
+### 2.5. 파일 추가하기
 
 * 쓰기 모드 w는 늘 새로운 파일을 생성한다. 예를 들면 기존의 파일이 있음에도 다시 한번 w로 파일을 부르면 기존 파일이 삭제되고 새로운 파일이 생겨 새로운 내용만 기록한다. 상황에 따라 파일을 계속 추가해야 하는 작업이 있을 수도 있으므로, 기존 파일에 추가 작업을 해야 하는 일이 있다. 이 경우 a를 사용하는 것이다.
 
@@ -336,61 +311,11 @@ with open('count_log.txt', 'a', encoding = 'utf-8') as f:
 
 
 
-#### 2. 디렉터리 만들기
-
-* os 모듈을 사용하면 디렉터리를 만들 수 있다.
-
-```python
-import os 
-os.mkdir('디렉터리 이름')
-```
-
-
-
-* 기존에 해당 디렉터리가 있는지 확인하는 코드가 필요할 경우가 있다.
-
-```python
-import os 
-os.mkdir('a')
-
-if not os.path.isdir('a'):
-    os.mkdir('a')
-```
-
-
-
-#### 3.  로그 파일 만들기
-
-* 로그 파일은 프로그램이 동작하는 동안 여러 가지 중간 기록을 하는 파일이다.
-
-```python
-import os
-
-if not os.path.isdir('a')
-	os.mkdir('a')
-    
-if not os.path.exists('a/count_log.txt')
-	f = open('a/count_log.txt', 'w', encoding = 'utf-8')
-    f.write('기록이 시작된다.\n')
-    f.close()
-    
-with open('a/count_log.txt', 'a', encoding = 'utf-8') as f:
-    import random, datetime
-    for i in range(1,11):
-        stamp = str(datetime.datetime.now())
-        value = random.random() * 1000000
-        log_line = stamp + '\t' + str(value) + '값이 생성되었다' + '\n'
-        f.write(log_line)
-        
-```
 
 
 
 
-
-### 2.5 pickle 모듈
-
-
+### 2.6 pickle 모듈
 
 * 파이썬 프로그램을 실행할 때 생성되는 여러 변수와 객체는 순간적으로 메모리에 로딩되었다가 프로그램이 종료되면 사라진다. 하지만 변수와 객체를 저장하여 필요할 때 불러서 쓰고 싶다면 pickle 모듈을 사용하면 된다.
 
