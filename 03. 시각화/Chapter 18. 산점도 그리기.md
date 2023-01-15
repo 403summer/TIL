@@ -76,7 +76,7 @@ scatter() 함수에 s=20**2으로 지정하는 것은 같은 크기의 마커를
 
 plot() 함수의 markersize 지정과 scatter() 함수의 s (size) 지정에 대해서는 아래의 예제를 참고하세요.
 
-```
+```python
 import matplotlib.pyplot as plt
 
 plt.plot([1], [1], 'o', markersize=20, c='#FF5733')
