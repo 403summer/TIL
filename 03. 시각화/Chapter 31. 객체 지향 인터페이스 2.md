@@ -8,6 +8,8 @@
 
 ## 01. 그래프 그리기
 
+
+
 ### 예제
 
 ```python
@@ -41,7 +43,9 @@ plt.subplots()이 반환하는 ax는 **Matplotlib의 Axes 클래스의 인스턴
 
 ## 02. 스타일 설정하기
 
-### 예제
+
+
+## 예제
 
 ```python
 import matplotlib.pyplot as plt
@@ -69,6 +73,8 @@ plt.show()
 
 
 ## 03. 제목과 범례 표시하기
+
+
 
 ### 예제
 

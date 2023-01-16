@@ -10,6 +10,8 @@ Matplotlib 공식 문서에 의하면 더욱 커스터마이즈된 그래프를 
 
 ## 01. plt.subplots() 사용하기
 
+
+
 ### 예제1
 
 ```python
@@ -54,6 +56,8 @@ add_axes([left, bottom, width, height])의 형태로 0에서 1 사이의 값을 
 
 
 ## 02. 행과 열 설정하기 (nrows, ncols)
+
+
 
 ### 예제
 

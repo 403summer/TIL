@@ -110,4 +110,6 @@ plt.show()
 
 **ylabel()** 함수의 **loc** 파라미터는 Y축 레이블의 위치를 지정합니다. ({‘bottom’, ‘center’, ‘top’})
 
-이 파라미터는 **Matplotlib 3.3** 이후 버전부터 적용되었습니다.![3-9](image/3/3-9.png)
+이 파라미터는 **Matplotlib 3.3** 이후 버전부터 적용되었습니다.
+
+![3-9](image/3/3-9.png)
