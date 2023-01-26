@@ -360,3 +360,331 @@ X = Ex(lam)
 
 
 기댓값은 1/3, 분산은 1/9이 됩니다.
+
+```python
+check_prob(X)
+```
+
+```python
+expected value 0.333
+variance 0.111
+```
+
+
+
+0부터 2 사이의 구간에서 밀도함수와 분포함수를 그려보겠습니다. 지수분포의 밀도함수는 값이 커질수록 지수적으로 감소합니다.
+
+```python
+plot_prob(X, 0, 2)
+```
+
+![8-15](image/8/8-15.png)
+
+scipy.stats에서는 지수분포를 따르는 확률변수를 expon 함수로 작성할 수 있습니다. 다만 파라미터 λ를 1, 2, 3으로 변화시켜 분포 형태가 어떻게 변하는지 그려봅시다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+xs = np.linspace(0, 3, 100)
+for lam, ls in zip([1, 2, 3], linestyles):
+    rv = stats.expon(scale = 1/lam)
+    ax.plot(xs, rv.pdf(xs), label = f'lambda:{lam}', ls = ls, color = 'gray')
+ax.legend()
+
+plt.show()
+```
+
+![8-16](image/8/8-16.png)
+
+파라미터 값이 커짐에 따라 확률분포는 점점 감소하는 것을 알 수 있습니다.
+
+지수분포를 정리한 결과는 다음과 같습니다.
+
+|    파라미터     |         λ          |
+| :-------------: | :----------------: |
+| 취할 수 있는 값 |     양의 실수      |
+|    밀도함수     |      λe^-λx^       |
+|     기댓값      |        1/λ         |
+|      분산       |       1/λ^2^       |
+|   scipy.stats   | expon(scale = 1/λ) |
+
+
+
+## 03. 카이제곱분포
+
+이제부터 소개하는 카이제곱분포, t분포, F분포는 10장 이후에 설명할 추정과 검정에 사용하는 특수한 확률분포입니다. 이러한 분포에 대해서는 '어떠한 사건이 따른다.' 라고 하지 않고 '어떠한 형태를 하고 있다.' 라고 설명합니다. 또는 정규분포와 어떤 관련성을 맺고 있는지에 중점을 두어 설명합니다.
+
+**카이제곱분포**(chi-square distribution)는 분산의 구간추정이나 독립성 검정에서 사용되는 확률분포입니다. 카이제곱분포는 서로 독립인 복수의 표준정규분포에 의해 다음과 같이 정의됩니다.
+
+**카이제곱분포**
+
+Z~1~, Z~2~, ... , Z~n~이 서로 독립이고 N(0, 1)을 따르고 있을 때, 그 제곱합
+
+![8-17](image/8/8-17.png)
+
+의 확률분포를 자유도가 n인 카이제곱분포라고 합니다.
+
+이 책에서는 자유도가 n인 카이제곱분포를 X^2^(n)으로 표기합니다. 카이제곱분포가 취할 수 있는 값은 정의에서 분명히 알 수 있듯이 0이상인 실수입니다.
+
+파이썬을 사용하여 표준정규분포로 카이제곱분포를 만들어봅시다. 여기서는 표준정규분포에서 표본 크기 10으로 무작위추출을 하여 그 제곱합을 취하는 작업을 100만 번 수행합니다. 그러면 (시그마 1~10) Z~i~^2^에서 무작위추출한 표본 크기 100만의 표본 데이터를 얻을 수 있습니다.
+
+```python
+n = 10
+rv = stats.norm()
+sample_size = int(1e6)
+# 표준정규분포에서 표본 크기 100만으로 무작위추출한다.
+Zs_sample = rv.rvs((n, sample_size))
+# axis = 0에서 총합을 구하고, 표준정규분포의 제곱합 표본 데이터를 구한다
+chi2_sample = np.sum(Zs_sample**2, axis = 0)
+```
+
+10개의 표준정규분포 제곱합이므로 자유도가 10인 카이제곱분포가 됩니다. scipy.stats에서는 카이제곱분포를 따르는 확률변수를 chi2 함수로 생성할 수 있습니다. 첫 번째 인수에 자유도를 지정하고, 이것을 이용하여 (시그마 1~10) Z~i~^2^에서 무작위추출한 표본 데이터의 히스토그램과 X^10^(10)의 밀도함수를 함께 그려보겠습니다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+rv_true = stats.chi2(n)
+xs = np.linspace(0, 30, 100)
+ax.hist(chi2_sample, bins = 100, density = True, alpha = 0.5, label = 'chi2_sample')
+ax.plot(xs, rv_true.pdf(xs), label = f'chi2({n})', color = 'gray')
+ax.legend()
+ax.set_xlim(0, 30)
+
+plt.show()
+```
+
+![8-18](image/8/8-18.png)
+
+히스토그램과 밀도함수가 정확하게 일치하고, (시그마 1~10) Z~i~^2^가 X^10^(10)이 된다는 것을 확인할 수 있습니다.
+
+다음으로 카이제곱분포가 자유도 n에 따라 어떠한 분포 형태가 되는지 살펴봅시다. 여기서는 자유도 n을 3, 5, 10으로 변화시켜 그러보겠습니다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+xs = np.linspace(0, 20, 500)
+for n, ls in zip([3, 5, 10], linestyles):
+    rv = stats.chi2(n)
+    ax.plot(xs, rv.pdf(xs), label = f'chi2({n})', ls = ls, color = 'gray')
+
+ax.legend()
+
+plt.show()
+```
+
+![8-19](image/8/8-19.png)
+
+카이제곱분포의 특징으로 다음 세 가지를 파악해둡시다.
+
+- 좌우비대칭으로, 왼쪽으로 치우치고 오른쪽으로 넓어집니다.
+- 자유도가 커지면 좌우대칭에 가깝워집니다.
+- 자유도의 값 가까이에 분포의 정점이 있습니다.
+
+
+
+표준정규분포와 마찬가지로 카이제곱분포의 상위 100α%점을 X~α~^2^(n)으로 표기합니다. isf 메서드를 사용하면 X~α~^2^(n)을 계산할 수 있습니다. X~0.05~^2^(5)라면 다음과 같이 구합니다.
+
+```python
+rv = stats.chi2(5)
+rv.isf(0.05)
+```
+
+```python
+11.070497693516355
+```
+
+
+
+카이제곱분포를 정리하면 다음과 같습니다.
+
+|    파라미터     |        n         |
+| :-------------: | :--------------: |
+| 취할 수 있는 값 | 음수가 아닌 실수 |
+|   scipy.stats   |     chi2(n)      |
+
+
+
+## 04. t 분포
+
+**t 분포**(t distribution)는 정규분포에서 모평균의 구간추정 등에 사용하는 확률분포입니다. t 분포는 서로 독립인 표준정규분포와 카이제곱분포에 의해 다음과 같이 정의합니다.
+
+**t 분포**
+
+확률변수 Z, Y는 서로 독립이고, Z는 표준정규분포 N(0, 1)을, Y는 자유도가 n인 카이제곱분포 X^2^(n)을 각각 따를 때,
+
+![8-20](image/8/8-20.png)
+
+의 확률분포를 자유도가 n인 t 분포라고 합니다.
+
+이 책에서는 자유도가 n인 t 분포를 t(n)으로 표기합니다. t 분포가 취할 수 있는 값은 실수 전체입니다.
+
+표준정규분포와 카이제곱분포로 t 분포를 만들어봅시다. 여기서는 Z~N(0, 1)과 Y~X^2^(10)을 사용하여 Z/루트(Y/10)에서 무작위추출을 수행합니다.
+
+```python
+n = 10
+rv1 = stats.norm()
+rv2 = stats.chi2(n)
+
+sample_size = int(1e6)
+Z_sample = rv1.rvs(sample_size)
+chi2_smple = rv2.rvs(sample_size)
+
+t_sample =Z_sample / np.sqrt(chi2_smple/n)
+```
+
+
+
+자유도가 10인 카이제곱분포를 사용했으므로, 자유도가 10인 t 분포가 생성됩니다. scipy.stats에서는 t 분포를 따르는 확률변수를 t함수로 생성할 수 있고, 인수에 자유도를 지정합니다. 이를 이용하여 Z/루트(Y/10)에서 무작위추출한 표본 데이터의 히스토그램과 t(10)의 밀도함수를 함께 그려보겠습니다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+rv = stats.t(n)
+xs = np.linspace(-3, 3, 100)
+ax.hist(t_sample, bins = 100, range = (-3, 3),
+       density = True, alpha = 0.5, label = 't_sample')
+ax.plot(xs, rv.pdf(xs), label = f't({n})', color = 'gray')
+ax.legend()
+ax.set_xlim(-3, 3)
+
+plt.show()
+```
+
+![8-21](image/8/8-21.png)
+
+Z/루트(Y/10)가 t(10)이 되었음을 확인할 수 있습니다.
+
+다음으로 t 분포가 자유도 n에 따라 어떤 분포 형태가 되는지 살펴봅시다. 여기서는 자유도 n을 3, 5, 10으로 변화시켜서 그려봅시다. 또한 비교를 위해 표준정규분포도 함께 그립니다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax =  fig.add_subplot(111)
+
+xs = np.linspace(-3, 3, 100)
+for n, ls in zip([3, 5, 10], linestyles):
+    rv = stats.t(n)
+    ax.plot(xs, rv.pdf(xs), label = f't({n})', ls = ls, color = 'gray')
+rv =stats.norm()
+ax.plot(xs, rv.pdf(xs), label = 'N(0, 1)')
+ax.legend()
+
+plt.show()
+```
+
+![8-22](image/8/8-22.png)
+
+t 분포의 특징으로 다음 세 가지를 파악해둡시다.
+
+- 좌우대칭인 분포입니다.
+- 표준정규분포보다 양쪽 끝이 두껍습니다.
+- 자유도가 커지면 표준정규분포에 가까워집니다.
+
+
+
+자유도가 n인 t 분포의 상위 100α%점은 10장 이후에 자주 사용하므로, 이 책에서는 t~α~(n)으로 표기합니다. isf 메서드를 사용하면 t~α~(n)을 계산할 수 있습니다. t~0.05~(5)라면 다음과 같이 구합니다.
+
+```python
+rv = stats.t(5)
+rv.isf(0.05)
+```
+
+```python
+2.0150483726691575
+```
+
+
+
+t 분포를 정리하면 다음과 같습니다.
+
+|    파라미터     |     n     |
+| :-------------: | :-------: |
+| 취할 수 있는 값 | 실수 전체 |
+|   scipy.stats   |   t(n)    |
+
+
+
+## 05. F 분포
+
+**F 분포**(F distribution)는 분산분석 등에서 사용되는 확률분포입니다. F 분포를 서로 독립인 두 개의 카이제곱분포에 의해 다음과 같이 정의됩니다.
+
+**F분포**
+
+확률변수 Y~1~, Y~2~는 서로 독립이고, 각각 Y~1~~X^2^(n~1~), Y~2~~X^2^(n~2~)를 따를 때,
+
+![8-23](image/8/8-23.png)
+
+의 확률분포를 자유도가 n~1~, n~2~인 F 분포 F(n~1~, n~2~)라고 합니다.
+
+이 책에서는 자유도가 n~1~, n~2~인 F 분포를 F(n~1~, n~2~)로 표기합니다. F 분포가 취할 수 있는 값은 0이상인 실수입니다.
+
+2개의 카이제곱분포로 F 분포를 작성해봅시다. 여기서는 Y~1~~X^2^(5)와 Y~2~~X^2^(10)을 사용하여 (Y~1~/5)/Y~2~/10에서 무작위추출을 수행합니다.
+
+```python
+n1 = 5
+n2 = 10
+rv1 = stats.chi2(n1)
+rv2 = stats.chi2(n2)
+
+sample_size = int(1e6)
+sample1 = rv1.rvs(sample_size)
+sample2 = rv2.rvs(sample_size)
+
+f_sample = (sample1/n1) / (sample2/n2)
+```
+
+
+
+(Y~1~/5)/Y~2~/10은 정의에 따라 F(5, 10)이 됩니다. scipy.stats에서는 F 분포를 따르는 확률변수를 f함수로 생성할 수 있고, 첫 번째 인수와 두 번째 인수에 각각 n~1~과 n~2~를 지정합니다. 이것을 이용하여 (Y~1~/5)/Y~2~/10에서 무작위추출한 표본 데이터의 히스토그램과 함께 F(5, 10)의 밀도함수를 그립니다.
+
+```python
+fig = plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+rv = stats.f(n1, n2)
+xs = np.linspace(0, 6, 200)[1:]
+ax.hist(f_sample, bins = 100, range = (0, 6), density = True, alpha = 0.5, label = 'f_sample')
+ax.plot(xs, rv.pdf(xs), label = f'F({n1}, {n2})', color = 'gray')
+ax.legend()
+ax.set_xlim(0, 6)
+
+plt.show()
+```
+
+![8-24](image/8/8-24.png)
+
+(Y~1~/5)/Y~2~/10이 F(5, 10)이 된 것을 확인할 수 있습니다.
+
+다음으로 F 분포가 자유도 n~1~, n~2~의 변화에 따라 어떤 형태의 분포가 되는지 살펴봅시다. 여기서는 n~2~를 10으로 고정하고, n~1~을 3, 5, 10으로 변화시켜 그래프를 그립니다.
+
+```python
+fig =plt.figure(figsize = (10, 6))
+ax = fig.add_subplot(111)
+
+xs = np.linspace(0, 6, 200)[1:]
+for n1, la in zip([3, 5, 10], linestyles):
+    rv = stats.f(n1, 10)
+    ax.plot(xs, rv.pdf(xs), label = f'F({n1}, 10)', ls = ls, color = 'gray')
+ax.legend()
+
+plt.show()
+```
+
+![8-25](image/8/8-25.png)
+
+F 분포의 특징으로 다음 두 가지를 파악해둡시다.
+
+- 좌우비대칭으로, 왼쪽으로 치우치고 오른쪽으로 넓어지는 분포입니다.
+- 분포의 정점은 1에 가깝습니다.
+
+
+
+F 분포를 정리하면 다음과 같습니다.
+
+|    파라미터     |    n~1~, n~2~    |
+| :-------------: | :--------------: |
+| 취할 수 있는 값 | 음수가 아닌 실수 |
+|   scipy.stats   |  t(n~1~, n~2~)   |
